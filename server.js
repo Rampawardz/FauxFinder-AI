@@ -20,6 +20,7 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
+// Socket.io setup
 const io = new Server(server, {
   cors: {
     origin: ["http://localhost:3000", "https://fauxfinder-ai.onrender.com"],
@@ -30,6 +31,7 @@ const io = new Server(server, {
 
 initAlertSocket(io);
 
+// Middleware
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://fauxfinder-ai.onrender.com"],
@@ -38,6 +40,7 @@ app.use(
 );
 app.use(express.json());
 
+// API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/profiles", profileRoutes);
 app.use("/api/ai-assistant", aiAssistantRoute);
@@ -46,11 +49,10 @@ app.use("/api/reports", reportRoutes(io));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-app.use(express.static(path.join(__dirname, "FauxFinder AI")));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "FauxFinder AI", "index.html"));
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 app.use((err, req, res, next) => {
