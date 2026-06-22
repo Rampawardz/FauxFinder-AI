@@ -1,17 +1,27 @@
 import api from "./api";
 
-export const createReport = async (profileId, reason, severity, token) => {
-  const config = token
-    ? { headers: { Authorization: `Bearer ${token}` } }
-    : undefined;
-  const res = await api.post("/reports", { profileId, reason, severity }, config);
+export const createReport = async (
+  profileId,
+  reason,
+  severity = "LOW",
+  reporterId = null
+) => {
+  const normalizedSeverity = ["LOW", "MEDIUM", "HIGH"].includes(
+    String(severity).toUpperCase()
+  )
+    ? String(severity).toUpperCase()
+    : "LOW";
+
+  const res = await api.post("/reports", {
+    profileId,
+    reporterId,
+    reason,
+    severity: normalizedSeverity,
+  });
   return res.data;
 };
 
-export const getReports = async (token) => {
-  const config = token
-    ? { headers: { Authorization: `Bearer ${token}` } }
-    : undefined;
-  const res = await api.get("/reports", config);
+export const getReports = async () => {
+  const res = await api.get("/reports");
   return res.data;
 };

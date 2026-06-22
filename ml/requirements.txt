@@ -1,0 +1,15 @@
+# ML Pipeline — Python Dependencies
+# Install with:  pip install -r ml/requirements.txt
+
+# Core ML
+scikit-learn==1.4.2
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Model serialization (included in stdlib but pinned for compatibility)
+# pickle is built-in — no install needed
+
+# Optional: for future notebook exploration
+# jupyter>=1.0.0
+# matplotlib>=3.7.0
+# seaborn>=0.12.0

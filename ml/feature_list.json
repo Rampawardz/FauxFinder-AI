@@ -1,1 +1,18 @@
-["profile pic", "nums/length username", "fullname words", "nums/length fullname", "name==username", "description length", "external URL", "private", "#posts", "#followers", "#follows"]
+[
+  "profile pic",
+  "nums/length username",
+  "fullname words",
+  "nums/length fullname",
+  "name==username",
+  "description length",
+  "external URL",
+  "private",
+  "#posts",
+  "#followers",
+  "#follows",
+  "followers_follows_ratio",
+  "posts_per_follower",
+  "log_posts",
+  "log_followers",
+  "log_follows"
+]

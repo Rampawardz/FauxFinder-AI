@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: fauxfinder-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/profiles
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: HIBERNATE_DDL_AUTO
+        value: update
