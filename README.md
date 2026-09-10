@@ -287,7 +287,7 @@ Build settings:
 Set this frontend environment variable:
 
 ```text
-VITE_API_URL=https://your-render-backend-url.onrender.com/api
+VITE_API_URL=https://backend-url.com/api
 ```
 
 After setting environment variables, redeploy the frontend.
